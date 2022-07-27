@@ -1,0 +1,22 @@
+type: theory
+custom_name: Dispatcher.Unconfined
+files:
+- name: src/App.kt
+  visible: true
+  text: |-
+    import kotlinx.coroutines.*
+
+    @ExperimentalCoroutinesApi
+    fun main() = runBlocking<Unit> {
+        launch(Dispatchers.Unconfined) {
+            println("Starting in ${Thread.currentThread().name}")
+            delay(1000)
+            println("Resuming in ${Thread.currentThread().name}")
+        }.start()
+    }
+  learner_created: false
+- name: hs_err_pid2108.log
+  visible: true
+  learner_created: true
+status: Solved
+record: -1
